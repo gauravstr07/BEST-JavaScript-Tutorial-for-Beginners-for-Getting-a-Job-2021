@@ -9,15 +9,22 @@
   <body>
     <h1>ToDo Application</h1>
 
+    <input id="todo-title" type="text" />
+    <button onclick="addTodo()">Add Todo</button>
+
     <script>
       let skills = ["Javascript", "React", "Node", "MongoDb"];
-      skills.push("Docker");
-
       skills.forEach(function (todoTitle) {
         let element = document.createElement("div");
         element.innerText = todoTitle;
         document.body.appendChild(element);
       });
+
+      function addTodo() {
+        let textBox = document.getElementById("todo-title");
+        let title = textBox.value;
+        skills.push(title);
+      }
     </script>
   </body>
 </html>
