@@ -10,24 +10,14 @@
     <h1>ToDo Application</h1>
 
     <script>
-      let todo1 = "Javascript";
-      let todo2 = "React Js";
-      let todo3 = "Node Js";
-      let todo4 = "MongoDB";
+      let skills = ["Javascript", "React", "Node", "MongoDb"];
+      skills.push("Docker");
 
-      let mern = ["Javascript", "React", "Node", "MongoDb"];
-      mern.push("Docker");
-      //mern.pop("Docker");
-
-      function addTodo(todoTitle, number) {
+      skills.forEach(function (todoTitle) {
         let element = document.createElement("div");
         element.innerText = todoTitle;
         document.body.appendChild(element);
-      }
-
-      addTodo(todo1);
-      addTodo(todo2);
-      addTodo(todo3);
+      });
     </script>
   </body>
 </html>
