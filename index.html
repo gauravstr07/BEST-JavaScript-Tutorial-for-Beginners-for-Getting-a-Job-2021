@@ -9,25 +9,36 @@
   <body>
     <h1>ToDo Application</h1>
 
-   
     <input id="todo-title" type="text" />
-    <input id="date-picker" type="date">
+    <input id="date-picker" type="date" />
     <button onclick="addTodo()">Add Todo</button>
 
     <div id="todo-list"></div>
 
     <script>
-      let todos = [""];
+      let todos = [
+        {
+          title: "todays expence",
+          dueDate: "2023-01-10",
+        },
+        {
+          title: "vivo y22",
+          dueDate: "2022-12-28",
+        },
+      ];
       render();
 
       function addTodo() {
         let textBox = document.getElementById("todo-title");
         let title = textBox.value;
 
-        const datePicker = document.getElementById('date-picker');
+        const datePicker = document.getElementById("date-picker");
         const dueDate = datePicker.value;
 
-        todos.push(title);
+        todos.push({
+          title: title,
+          dueDate: dueDate
+        });
 
         render();
       }
@@ -35,9 +46,9 @@
       function render() {
         document.getElementById("todo-list").innerHTML = "";
 
-        todos.forEach(function (todoTitle) {
+        todos.forEach(function (todo) {
           let element = document.createElement("div");
-          element.innerText = todoTitle;
+          element.innerText = todo.title + " --- " + todo.dueDate;
           let todoList = document.getElementById("todo-list");
           todoList.appendChild(element);
         });
