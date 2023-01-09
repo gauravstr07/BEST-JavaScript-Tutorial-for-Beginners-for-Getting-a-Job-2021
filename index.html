@@ -20,10 +20,12 @@
         {
           title: "todays expence",
           dueDate: "2023-01-10",
+          id: "id1",
         },
         {
           title: "vivo y22",
           dueDate: "2022-12-28",
+          id: "id2",
         },
       ];
       render();
@@ -35,12 +37,22 @@
         const datePicker = document.getElementById("date-picker");
         const dueDate = datePicker.value;
 
+        const id = new Date().getTime();
+
         todos.push({
           title: title,
           dueDate: dueDate,
+          id: id,
         });
 
         render();
+      }
+
+      function deleteTodo(event) {
+        const deleteButton = event.target;
+        const idToDelete = deleteButton.id;
+
+        todos.filter(function (todo) {});
       }
 
       function render() {
@@ -52,7 +64,9 @@
 
           const deleteButton = document.createElement("button");
           deleteButton.innerText = "Delete";
-          deleteButton.style = "margin-left: 12px"
+          deleteButton.style = "margin-left: 12px";
+          deleteButton.onclick = deleteTodo;
+          deleteButton.id = todo.id;
           element.appendChild(deleteButton);
 
           let todoList = document.getElementById("todo-list");
